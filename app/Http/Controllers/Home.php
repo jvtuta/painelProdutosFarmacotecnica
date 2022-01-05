@@ -20,6 +20,10 @@ class Home extends Controller {
      */
     public function data(Request $request)
     {
+
+        
+
+
         $dados = ['dado'=>'teste dados'];
         return view('resultProdutos', $dados);
     }
