@@ -47,17 +47,17 @@ class ProdutosRepository extends Repository {
             $mkp = number_format(($mkp), 2, ',', '.');
             $consumo = $this->consumo($produto);
             $res = [
-                'Cod. Produto'=> $produto->CDPRO,
-                'Produto' => $produto->DESCRPRD,
-                'Curva'=> $produto->CURVA,
-                'Grupo' => $produto->GRUPO,
-                'Estoque Atual' => $this->estoque($produto),
-                'Consumo' => $consumo,
-                'Frequencia' => $this->frequencia($produto, $consumo),
-                'R$ Compra' => number_format(($produto->PRCOMN), 2, ',', '.'),
-                'R$ Venda' => number_format(($produto->PRVEN), 2, ',', '.'),
-                'CMA %' => $cma,
-                'MKP' => $mkp
+                'cdpro'=> $produto->CDPRO,
+                'produto' => $produto->DESCRPRD,
+                'curva'=> $produto->CURVA,
+                'grupo' => $produto->GRUPO,
+                'estoque_atual' => $this->estoque($produto),
+                'consumo' => $consumo,
+                'frequencia' => $this->frequencia($produto, $consumo),
+                'preco_compra' => number_format(($produto->PRCOMN), 2, ',', '.'),
+                'preco_venda' => number_format(($produto->PRVEN), 2, ',', '.'),
+                'cma' => $cma,
+                'mkp' => $mkp
             ];
             array_push($resultArray, $res);
         }

@@ -19,13 +19,14 @@ class Home extends Controller {
      * @return ExcelData
      */
     public function data(Request $request)
-    {
-
+    {        
+        $data = date('d-m-Y', strtotime($request->data));
+        $data = explode('-', $data);
+        $ano = $data[2];
+        $mes = $data[1];
         
-
-
-        $dados = ['dado'=>'teste dados'];
-        return view('resultProdutos', $dados);
+        
+        return view('resultProdutos');
     }
 }
 
