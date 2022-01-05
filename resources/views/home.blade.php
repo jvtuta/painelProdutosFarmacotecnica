@@ -6,8 +6,7 @@
         teste php
     </div>
     <div>
-        <form action="{{ action([App\Http\Controllers\Home::class, 'data']) }}", method="POST">
-            @csrf
+        <form action="{{ action([App\Http\Controllers\Home::class, 'data']) }}", method="GET">
             <button type="submit">Teste</button>
         </form>
     </div>

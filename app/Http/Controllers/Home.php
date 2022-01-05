@@ -15,11 +15,13 @@ class Home extends Controller {
     }
 
     /**
+     * metodo post irá processar os dados e envia-los para a view
      * @return ExcelData
      */
     public function data(Request $request)
     {
-        return redirect()->route('result');
+        $dados = ['dado'=>'teste dados'];
+        return view('resultProdutos', $dados);
     }
 }
 

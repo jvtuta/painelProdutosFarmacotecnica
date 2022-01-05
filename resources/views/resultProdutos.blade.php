@@ -4,7 +4,7 @@
 @section('content')
 
     <div>
-        resultado da query
+        resultado da query {{ $dado }}
     </div>
     <div>
         <button>Imprimir</button>
