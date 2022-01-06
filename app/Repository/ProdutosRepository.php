@@ -76,7 +76,16 @@ class ProdutosRepository extends Repository {
             ->select()
             ->where('CDPRO', $produto->CDPRO)
             ->whereRaw("CDFIL IN $this->filiais")
-            ->get()->sum('ESTAT - SAIDATR');
+            ->get();
+        $estoque = $estoque->pipe( function($produto) {
+            $resultado = collect([
+                'sum_estat'=>$produto->sum('ESTAT'),
+                'sum_saidatr'=>$produto->sum('SAIDATR')
+            ]);
+            $resultado = $resultado->toArray();
+            return $resultado['sum_estat'] - $resultado['sum_saidatr'];            
+        });
+
         if($estoque) {
             return $estoque;                                                                                
         } else {
@@ -118,6 +127,11 @@ class ProdutosRepository extends Repository {
             ->whereRaw("CDFILE in $this->filialEstoque")
             ->whereRaw("DTENTR BETWEEN cast('$this->mesInicio' as date) and cast('$this->mesFim' as date)")
             ->get()->toArray();
-        return $frequencia[0]->COUNT;
+        if($frequencia[0]->COUNT) {
+            return $frequencia[0]->COUNT;
+        } else {
+            return '0';
+        }
+        
     }
 }
