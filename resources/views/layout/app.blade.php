@@ -16,8 +16,8 @@
         font-family: 'swiss_721regular' !important;
         }
         div.titulo h1 {
-            font-weight: 900;
-            font-size: 4rem;
+            font-weight: 400;
+            font-size: 3rem;
             color: white;
         }
         nav.header {
@@ -31,7 +31,7 @@
         <div class="container-fluid">
           <div>
             <a class="navbar-brand" href="#">
-              <img src="{{asset('logo-farmacotecnica.png')}}" alt="" width="220">
+              <img src="{{asset('logo-farmacotecnica.png')}}" alt="" width="160">
             </a>
           </div>
           <div class="titulo">
@@ -39,7 +39,7 @@
           </div>
           <div>
             <a href="" class="navbar-brand">
-              <img src="{{asset('logo-mram.png')}}" alt="" width="220">
+              <img src="{{asset('logo-mram.png')}}" alt="" width="180">
             </a>
           </div>
         </div>

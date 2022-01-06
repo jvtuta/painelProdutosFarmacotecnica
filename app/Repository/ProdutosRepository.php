@@ -34,11 +34,12 @@ class ProdutosRepository extends Repository {
     }
 
     /**
-     * @return Produtos    
+     * @return Array    
     */
 
     public function get()
     {
+
         $resultArray = Array();
         foreach($this->produtos as $produto) {
             $cma = @($produto->PRCOMN / $produto->PRVEN) * 100;
@@ -61,6 +62,7 @@ class ProdutosRepository extends Repository {
             ];
             array_push($resultArray, $res);
         }
+        
         return $resultArray;
     }
 
@@ -75,7 +77,12 @@ class ProdutosRepository extends Repository {
             ->where('CDPRO', $produto->CDPRO)
             ->whereRaw("CDFIL IN $this->filiais")
             ->get()->sum('ESTAT - SAIDATR');
-        return $estoque;                                                                            
+        if($estoque) {
+            return $estoque;                                                                                
+        } else {
+            return '0';
+        }
+        
     }
     /**
      * @param CDPRO_DO_PRODUTO_
@@ -89,8 +96,12 @@ class ProdutosRepository extends Repository {
             ->where('ANORF', $this->ano)
             ->where('MESRF', $this->mes)
             ->get()->sum('ACSAIDAQT');
-        
-        return $consumo;                        
+        if($consumo) {
+            return $consumo;
+        } else {
+            return '0';
+        }
+                                
     }
     /**
      * @param CDPRO_PRODUTO_

@@ -3,11 +3,10 @@
 
 @section('content')
 
-    <div>
-        resultado da query {{ $dado }}
-    </div>
-    <div>
-        <button>Imprimir</button>
+    <div class="container">
+        <div class="row justify-content-center">
+            {{$dadosProdutos}}
+        </div>
     </div>
 
 @endsection

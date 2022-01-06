@@ -9,5 +9,18 @@ class Produtos extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'cdpro',
+        'produto',
+        'curva',
+        'grupo',
+        'estoque_atual',
+        'consumo',
+        'frequencia',
+        'preco_compra',
+        'preco_venda',
+        'cma',
+        'mkp'
+    ];
     
 }

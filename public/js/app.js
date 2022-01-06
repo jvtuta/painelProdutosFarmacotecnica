@@ -2054,10 +2054,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/checkBoxRadioFilial.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/checkBoxRadioFilial.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/check-box-radio-filial-component.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/check-box-radio-filial-component.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2114,7 +2114,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_checkBoxRadioFilial_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/checkBoxRadioFilial.vue */ "./resources/js/components/checkBoxRadioFilial.vue");
+/* harmony import */ var _components_check_box_radio_filial_component_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/check-box-radio-filial-component.vue */ "./resources/js/components/check-box-radio-filial-component.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2197,11 +2241,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      option: "todos"
+      option: "00",
+      date_val: true,
+      loading: false
     };
   },
+  watch: {
+    date_val: function date_val(val) {
+      console.log(val);
+    }
+  },
   components: {
-    "check-box-filial-component": _components_checkBoxRadioFilial_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    "check-box-filial-component": _components_check_box_radio_filial_component_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
     selectedOption: function selectedOption(val) {
@@ -37593,10 +37644,10 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ "./resources/js/components/checkBoxRadioFilial.vue":
-/*!*********************************************************!*\
-  !*** ./resources/js/components/checkBoxRadioFilial.vue ***!
-  \*********************************************************/
+/***/ "./resources/js/components/check-box-radio-filial-component.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/check-box-radio-filial-component.vue ***!
+  \**********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -37604,8 +37655,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _checkBoxRadioFilial_vue_vue_type_template_id_32be7330___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./checkBoxRadioFilial.vue?vue&type=template&id=32be7330& */ "./resources/js/components/checkBoxRadioFilial.vue?vue&type=template&id=32be7330&");
-/* harmony import */ var _checkBoxRadioFilial_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./checkBoxRadioFilial.vue?vue&type=script&lang=js& */ "./resources/js/components/checkBoxRadioFilial.vue?vue&type=script&lang=js&");
+/* harmony import */ var _check_box_radio_filial_component_vue_vue_type_template_id_07ea035f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./check-box-radio-filial-component.vue?vue&type=template&id=07ea035f& */ "./resources/js/components/check-box-radio-filial-component.vue?vue&type=template&id=07ea035f&");
+/* harmony import */ var _check_box_radio_filial_component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./check-box-radio-filial-component.vue?vue&type=script&lang=js& */ "./resources/js/components/check-box-radio-filial-component.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -37615,9 +37666,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _checkBoxRadioFilial_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _checkBoxRadioFilial_vue_vue_type_template_id_32be7330___WEBPACK_IMPORTED_MODULE_0__.render,
-  _checkBoxRadioFilial_vue_vue_type_template_id_32be7330___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _check_box_radio_filial_component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _check_box_radio_filial_component_vue_vue_type_template_id_07ea035f___WEBPACK_IMPORTED_MODULE_0__.render,
+  _check_box_radio_filial_component_vue_vue_type_template_id_07ea035f___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -37627,7 +37678,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/checkBoxRadioFilial.vue"
+component.options.__file = "resources/js/components/check-box-radio-filial-component.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -37671,10 +37722,10 @@ component.options.__file = "resources/js/views/home-component.vue"
 
 /***/ }),
 
-/***/ "./resources/js/components/checkBoxRadioFilial.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/components/checkBoxRadioFilial.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************/
+/***/ "./resources/js/components/check-box-radio-filial-component.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/check-box-radio-filial-component.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -37682,8 +37733,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_checkBoxRadioFilial_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./checkBoxRadioFilial.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/checkBoxRadioFilial.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_checkBoxRadioFilial_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_check_box_radio_filial_component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./check-box-radio-filial-component.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/check-box-radio-filial-component.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_check_box_radio_filial_component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -37703,19 +37754,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/checkBoxRadioFilial.vue?vue&type=template&id=32be7330&":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/components/checkBoxRadioFilial.vue?vue&type=template&id=32be7330& ***!
-  \****************************************************************************************/
+/***/ "./resources/js/components/check-box-radio-filial-component.vue?vue&type=template&id=07ea035f&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/check-box-radio-filial-component.vue?vue&type=template&id=07ea035f& ***!
+  \*****************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_checkBoxRadioFilial_vue_vue_type_template_id_32be7330___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_checkBoxRadioFilial_vue_vue_type_template_id_32be7330___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_check_box_radio_filial_component_vue_vue_type_template_id_07ea035f___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_check_box_radio_filial_component_vue_vue_type_template_id_07ea035f___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_checkBoxRadioFilial_vue_vue_type_template_id_32be7330___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./checkBoxRadioFilial.vue?vue&type=template&id=32be7330& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/checkBoxRadioFilial.vue?vue&type=template&id=32be7330&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_check_box_radio_filial_component_vue_vue_type_template_id_07ea035f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./check-box-radio-filial-component.vue?vue&type=template&id=07ea035f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/check-box-radio-filial-component.vue?vue&type=template&id=07ea035f&");
 
 
 /***/ }),
@@ -37737,10 +37788,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/checkBoxRadioFilial.vue?vue&type=template&id=32be7330&":
-/*!*******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/checkBoxRadioFilial.vue?vue&type=template&id=32be7330& ***!
-  \*******************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/check-box-radio-filial-component.vue?vue&type=template&id=07ea035f&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/check-box-radio-filial-component.vue?vue&type=template&id=07ea035f& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -37753,7 +37804,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "form-check form-check-inline" }, [
+  return _c("div", { staticClass: "form-check p-0" }, [
     _c("input", {
       directives: [
         {
@@ -37763,7 +37814,7 @@ var render = function () {
           expression: "radioButtonVal",
         },
       ],
-      staticClass: "form-check-input",
+      staticClass: "form-check-input mx-2",
       attrs: { type: "radio", name: _vm.name, id: _vm.id },
       domProps: {
         value: _vm.label,
@@ -37807,102 +37858,202 @@ var render = function () {
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-6" }, [
-        _c("div", { staticClass: "row justify-content-center" }, [
+        _c("div", { staticClass: "card p-3" }, [
           _c("form", { attrs: { action: _vm.action, method: "get" } }, [
-            _c(
-              "div",
-              { staticClass: "col-12" },
-              [
-                _c("check-box-filial-component", {
-                  attrs: {
-                    name: "options",
-                    text: "Matriz",
-                    label: "matriz",
-                    id: "matriz",
-                  },
-                  on: { change: _vm.selectedOption },
-                }),
+            _c("div", { staticClass: "row justify-content-center" }, [
+              _c("div", { staticClass: "col-8" }, [
+                _vm._m(0),
                 _vm._v(" "),
-                _c("check-box-filial-component", {
-                  attrs: {
-                    name: "options",
-                    text: "102 Sul",
-                    label: "102sul",
-                    id: "102sul",
-                  },
-                  on: { change: _vm.selectedOption },
-                }),
+                _c(
+                  "div",
+                  { staticClass: "col-10 p-2" },
+                  [
+                    _c("check-box-filial-component", {
+                      attrs: {
+                        name: "options",
+                        text: "Matriz",
+                        label: "01",
+                        id: "matriz",
+                      },
+                      on: { change: _vm.selectedOption },
+                    }),
+                    _vm._v(" "),
+                    _c("check-box-filial-component", {
+                      attrs: {
+                        name: "options",
+                        text: "102 Sul",
+                        label: "02",
+                        id: "102sul",
+                      },
+                      on: { change: _vm.selectedOption },
+                    }),
+                    _vm._v(" "),
+                    _c("check-box-filial-component", {
+                      attrs: {
+                        name: "options",
+                        text: "302 Sul",
+                        label: "06",
+                        id: "302sul",
+                      },
+                      on: { change: _vm.selectedOption },
+                    }),
+                    _vm._v(" "),
+                    _c("check-box-filial-component", {
+                      attrs: {
+                        name: "options",
+                        text: "Taguatinga Centro",
+                        label: "03",
+                        id: "tcentro",
+                      },
+                      on: { change: _vm.selectedOption },
+                    }),
+                    _vm._v(" "),
+                    _c("check-box-filial-component", {
+                      attrs: {
+                        name: "options",
+                        text: "Taguatinga Norte",
+                        label: "04",
+                        id: "tnorte",
+                      },
+                      on: { change: _vm.selectedOption },
+                    }),
+                    _vm._v(" "),
+                    _c("check-box-filial-component", {
+                      attrs: {
+                        name: "options",
+                        text: "316 Norte",
+                        label: "12",
+                        id: "316norte",
+                      },
+                      on: { change: _vm.selectedOption },
+                    }),
+                    _vm._v(" "),
+                    _c("check-box-filial-component", {
+                      attrs: {
+                        name: "options",
+                        text: "Centro Clínico Sul",
+                        label: "08",
+                        id: "ccsul",
+                      },
+                      on: { change: _vm.selectedOption },
+                    }),
+                    _vm._v(" "),
+                    _c("check-box-filial-component", {
+                      attrs: {
+                        name: "options",
+                        text: "Teleatendimento",
+                        label: "15",
+                        id: "teleatendimento",
+                      },
+                      on: { change: _vm.selectedOption },
+                    }),
+                    _vm._v(" "),
+                    _c("check-box-filial-component", {
+                      attrs: {
+                        name: "options",
+                        text: "Almoxarifado",
+                        label: "16",
+                        id: "almoxarifado",
+                      },
+                      on: { change: _vm.selectedOption },
+                    }),
+                    _vm._v(" "),
+                    _c("check-box-filial-component", {
+                      attrs: {
+                        name: "options",
+                        text: "Todos",
+                        label: "00",
+                        id: "todos",
+                      },
+                      on: { change: _vm.selectedOption },
+                    }),
+                  ],
+                  1
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-4 border-start p-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label fs-5", attrs: { for: "periodo" } },
+                  [_vm._v("Período de análise:")]
+                ),
                 _vm._v(" "),
-                _c("check-box-filial-component", {
-                  attrs: {
-                    name: "options",
-                    text: "302 Sul",
-                    label: "302sul",
-                    id: "302sul",
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.date_val,
+                      expression: "date_val",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "date", name: "periodo", id: "periodo" },
+                  domProps: { value: _vm.date_val },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.date_val = $event.target.value
+                    },
                   },
-                  on: { change: _vm.selectedOption },
                 }),
-                _vm._v(" "),
-                _c("check-box-filial-component", {
-                  attrs: {
-                    name: "options",
-                    text: "Taguatinga Centro",
-                    label: "tcentro",
-                    id: "tcentro",
-                  },
-                  on: { change: _vm.selectedOption },
-                }),
-                _vm._v(" "),
-                _c("check-box-filial-component", {
-                  attrs: {
-                    name: "options",
-                    text: "Taguatinga Norte",
-                    label: "tnorte",
-                    id: "tnorte",
-                  },
-                  on: { change: _vm.selectedOption },
-                }),
-                _vm._v(" "),
-                _c("check-box-filial-component", {
-                  attrs: {
-                    name: "options",
-                    text: "316 Norte",
-                    label: "316norte",
-                    id: "316norte",
-                  },
-                  on: { change: _vm.selectedOption },
-                }),
-                _vm._v(" "),
-                _c("check-box-filial-component", {
-                  attrs: {
-                    name: "options",
-                    text: "Centro Clínico Sul",
-                    label: "ccsul",
-                    id: "ccsul",
-                  },
-                  on: { change: _vm.selectedOption },
-                }),
-                _vm._v(" "),
-                _c("check-box-filial-component", {
-                  attrs: {
-                    name: "options",
-                    text: "Todos",
-                    label: "todos",
-                    id: "todos",
-                    checked: true,
-                  },
-                  on: { change: _vm.selectedOption },
-                }),
-              ],
-              1
-            ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-4 mt-4" }, [
+                _c("div", { staticClass: "d-grid gap-2" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: {
+                        type: "submit",
+                        disabled: _vm.date_val === true,
+                      },
+                      on: {
+                        click: function ($event) {
+                          _vm.loading = true
+                        },
+                      },
+                    },
+                    [
+                      _vm.loading
+                        ? _c("span", {
+                            staticClass: "spinner-grow spinner-grow-sm",
+                            attrs: { role: "status", "aria-hidden": "true" },
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      !_vm.loading
+                        ? _c("span", [_vm._v("Carregar")])
+                        : _c("span", [_vm._v("Carregando...")]),
+                    ]
+                  ),
+                ]),
+              ]),
+            ]),
           ]),
         ]),
       ]),
     ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row justify-content-center" }),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "d-flex justify-content-center border-bottom mb-4" },
+      [_c("span", { staticClass: "text-center fs-4" }, [_vm._v("Filiais")])]
+    )
+  },
+]
 render._withStripped = true
 
 
