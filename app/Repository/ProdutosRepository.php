@@ -117,10 +117,7 @@ class ProdutosRepository extends Repository {
      * @param CONSUMO_PRODUTO_
      */
     private function frequencia($produto, $consumo)
-    {
-        if($consumo == '0') {
-            return 0;
-        }
+    {        
         $frequencia = DB::table('FC12110')
             ->select(DB::raw('COUNT(DISTINCT(NRRQU))'))
             ->where('CDPRO', $produto->CDPRO)
