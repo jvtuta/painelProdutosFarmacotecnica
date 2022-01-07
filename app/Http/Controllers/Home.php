@@ -36,14 +36,14 @@ class Home extends Controller {
         );
 
         $filial = $request->options === '00' ? "('01', '02', '03', '04', '06', '08', '12', '15', '16')" : "('$request->options')";
-
+        
         $produtos = new ProdutosRepository($ano, $mes, $filial, $filial);
         $produtos = $produtos->get();
 
         $export = new ProdutosExport($produtos);
-
+        
         if($request->options != 0 ) {
-            return Excel::download($export, 'RelatórioDeProdutos '. '_'. $filialName[$filial] . '_'. $mesArray[$mes] . '.xlsx');
+            return Excel::download($export, 'RelatórioDeProdutos '. '_'. $filialName[$request->options] . '_'. $mesArray[$mes] . '.xlsx');
         } else {
             return Excel::download($export, 'RelatórioDeProdutos '. '_'. $mesArray[$mes] . '.xlsx');
         }
