@@ -35,7 +35,7 @@
             </a>
           </div>
           <div class="titulo">
-            <h1>Painel de Produtos</h1>
+            <h1>Relatório de Produtos</h1>
           </div>
           <div>
             <a href="" class="navbar-brand">
