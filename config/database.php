@@ -93,7 +93,7 @@ return [
 
 
         'firebird' => [
-            'driver'   => 'interbase',
+            'driver'   => 'firebird',
             'host'     => env('DB_HOST', 'localhost'),
             'port'     => env('DB_PORT', '3050'),
             'database' => env('DB_DATABASE', '/path_to/database.fdb'),
