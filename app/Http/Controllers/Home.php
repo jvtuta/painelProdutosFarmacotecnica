@@ -22,7 +22,10 @@ class Home extends Controller {
         $data = explode('-', $data);
         $ano = $data[2];
         $mes = $data[1];
-        
+        if(empty($request->options)) {
+            $request->options = '00';
+        }
+
         $filialName = array(
             '01'=>'Matriz', '02'=>'102Sul', '03'=> 'TagCentro','04'=>'TagNorte', 
             '06'=>'302Sul', '08'=>'CCSul',  '12'=> '316Norte', '15'=>'TeleAtendimento', 
