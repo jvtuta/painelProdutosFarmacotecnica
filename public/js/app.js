@@ -2232,6 +2232,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -2258,6 +2264,12 @@ __webpack_require__.r(__webpack_exports__);
     selectedOption: function selectedOption(val) {
       this.option = val;
     }
+  },
+  mounted: function mounted() {
+    var date = new Date();
+    var mounth = date.getMonth() + 1 <= 9 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+    date = date.getFullYear() + "-" + mounth;
+    this.date_val = date;
   }
 });
 
@@ -37804,7 +37816,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "form-check p-0" }, [
+  return _c("div", { staticClass: "form-check form-check-inline p-0" }, [
     _c("input", {
       directives: [
         {
@@ -37857,126 +37869,126 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-6" }, [
+      _c("div", { staticClass: "col-md-6 col-sm-10" }, [
         _c("div", { staticClass: "card p-3" }, [
           _c("form", { attrs: { action: _vm.action, method: "get" } }, [
-            _c("div", { staticClass: "row justify-content-center" }, [
-              _c("div", { staticClass: "col-8" }, [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-10 p-2" },
-                  [
-                    _c("check-box-filial-component", {
-                      attrs: {
-                        name: "options",
-                        text: "Matriz",
-                        label: "01",
-                        id: "matriz",
-                      },
-                      on: { change: _vm.selectedOption },
-                    }),
-                    _vm._v(" "),
-                    _c("check-box-filial-component", {
-                      attrs: {
-                        name: "options",
-                        text: "102 Sul",
-                        label: "02",
-                        id: "102sul",
-                      },
-                      on: { change: _vm.selectedOption },
-                    }),
-                    _vm._v(" "),
-                    _c("check-box-filial-component", {
-                      attrs: {
-                        name: "options",
-                        text: "302 Sul",
-                        label: "06",
-                        id: "302sul",
-                      },
-                      on: { change: _vm.selectedOption },
-                    }),
-                    _vm._v(" "),
-                    _c("check-box-filial-component", {
-                      attrs: {
-                        name: "options",
-                        text: "Taguatinga Centro",
-                        label: "03",
-                        id: "tcentro",
-                      },
-                      on: { change: _vm.selectedOption },
-                    }),
-                    _vm._v(" "),
-                    _c("check-box-filial-component", {
-                      attrs: {
-                        name: "options",
-                        text: "Taguatinga Norte",
-                        label: "04",
-                        id: "tnorte",
-                      },
-                      on: { change: _vm.selectedOption },
-                    }),
-                    _vm._v(" "),
-                    _c("check-box-filial-component", {
-                      attrs: {
-                        name: "options",
-                        text: "316 Norte",
-                        label: "12",
-                        id: "316norte",
-                      },
-                      on: { change: _vm.selectedOption },
-                    }),
-                    _vm._v(" "),
-                    _c("check-box-filial-component", {
-                      attrs: {
-                        name: "options",
-                        text: "Centro Clínico Sul",
-                        label: "08",
-                        id: "ccsul",
-                      },
-                      on: { change: _vm.selectedOption },
-                    }),
-                    _vm._v(" "),
-                    _c("check-box-filial-component", {
-                      attrs: {
-                        name: "options",
-                        text: "Teleatendimento",
-                        label: "15",
-                        id: "teleatendimento",
-                      },
-                      on: { change: _vm.selectedOption },
-                    }),
-                    _vm._v(" "),
-                    _c("check-box-filial-component", {
-                      attrs: {
-                        name: "options",
-                        text: "Almoxarifado",
-                        label: "16",
-                        id: "almoxarifado",
-                      },
-                      on: { change: _vm.selectedOption },
-                    }),
-                    _vm._v(" "),
-                    _c("check-box-filial-component", {
-                      attrs: {
-                        name: "options",
-                        text: "Todos",
-                        label: "00",
-                        id: "todos",
-                      },
-                      on: { change: _vm.selectedOption },
-                    }),
-                  ],
-                  1
-                ),
-              ]),
+            _c("div", { staticClass: "row" }, [
+              _vm._m(0),
               _vm._v(" "),
-              _c("div", { staticClass: "col-4 border-start p-3" }, [
+              _c(
+                "div",
+                { staticClass: "col-10 p-2" },
+                [
+                  _c("check-box-filial-component", {
+                    attrs: {
+                      name: "options",
+                      text: "Matriz",
+                      label: "01",
+                      id: "matriz",
+                    },
+                    on: { change: _vm.selectedOption },
+                  }),
+                  _vm._v(" "),
+                  _c("check-box-filial-component", {
+                    attrs: {
+                      name: "options",
+                      text: "102 Sul",
+                      label: "02",
+                      id: "102sul",
+                    },
+                    on: { change: _vm.selectedOption },
+                  }),
+                  _vm._v(" "),
+                  _c("check-box-filial-component", {
+                    attrs: {
+                      name: "options",
+                      text: "302 Sul",
+                      label: "06",
+                      id: "302sul",
+                    },
+                    on: { change: _vm.selectedOption },
+                  }),
+                  _vm._v(" "),
+                  _c("check-box-filial-component", {
+                    attrs: {
+                      name: "options",
+                      text: "Taguatinga Centro",
+                      label: "03",
+                      id: "tcentro",
+                    },
+                    on: { change: _vm.selectedOption },
+                  }),
+                  _vm._v(" "),
+                  _c("check-box-filial-component", {
+                    attrs: {
+                      name: "options",
+                      text: "Taguatinga Norte",
+                      label: "04",
+                      id: "tnorte",
+                    },
+                    on: { change: _vm.selectedOption },
+                  }),
+                  _vm._v(" "),
+                  _c("check-box-filial-component", {
+                    attrs: {
+                      name: "options",
+                      text: "316 Norte",
+                      label: "12",
+                      id: "316norte",
+                    },
+                    on: { change: _vm.selectedOption },
+                  }),
+                  _vm._v(" "),
+                  _c("check-box-filial-component", {
+                    attrs: {
+                      name: "options",
+                      text: "Centro Clínico Sul",
+                      label: "08",
+                      id: "ccsul",
+                    },
+                    on: { change: _vm.selectedOption },
+                  }),
+                  _vm._v(" "),
+                  _c("check-box-filial-component", {
+                    attrs: {
+                      name: "options",
+                      text: "Teleatendimento",
+                      label: "15",
+                      id: "teleatendimento",
+                    },
+                    on: { change: _vm.selectedOption },
+                  }),
+                  _vm._v(" "),
+                  _c("check-box-filial-component", {
+                    attrs: {
+                      name: "options",
+                      text: "Almoxarifado",
+                      label: "16",
+                      id: "almoxarifado",
+                    },
+                    on: { change: _vm.selectedOption },
+                  }),
+                  _vm._v(" "),
+                  _c("check-box-filial-component", {
+                    attrs: {
+                      name: "options",
+                      text: "Todos",
+                      label: "00",
+                      id: "todos",
+                    },
+                    on: { change: _vm.selectedOption },
+                  }),
+                ],
+                1
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row mt-4 p-1" }, [
+              _c("div", { staticClass: "col" }, [
                 _c(
                   "label",
                   { staticClass: "form-label fs-5", attrs: { for: "periodo" } },
-                  [_vm._v("Período de análise:")]
+                  [_vm._v("Data:")]
                 ),
                 _vm._v(" "),
                 _c("input", {
@@ -37989,7 +38001,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "date", name: "periodo", id: "periodo" },
+                  attrs: { type: "month", name: "periodo", id: "periodo" },
                   domProps: { value: _vm.date_val },
                   on: {
                     input: function ($event) {
@@ -38001,37 +38013,34 @@ var render = function () {
                   },
                 }),
               ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-4 mt-4" }, [
-                _c("div", { staticClass: "d-grid gap-2" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: {
-                        type: "submit",
-                        disabled: _vm.date_val === true,
-                      },
-                      on: {
-                        click: function ($event) {
-                          _vm.loading = true
-                        },
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row mt-4 p-1" }, [
+              _c("div", { staticClass: "d-grid gap-2" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "submit", disabled: _vm.date_val === true },
+                    on: {
+                      click: function ($event) {
+                        _vm.loading = true
                       },
                     },
-                    [
-                      _vm.loading
-                        ? _c("span", {
-                            staticClass: "spinner-grow spinner-grow-sm",
-                            attrs: { role: "status", "aria-hidden": "true" },
-                          })
-                        : _vm._e(),
-                      _vm._v(" "),
-                      !_vm.loading
-                        ? _c("span", [_vm._v("Carregar")])
-                        : _c("span", [_vm._v("Carregando...")]),
-                    ]
-                  ),
-                ]),
+                  },
+                  [
+                    _vm.loading
+                      ? _c("span", {
+                          staticClass: "spinner-grow spinner-grow-sm",
+                          attrs: { role: "status", "aria-hidden": "true" },
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    !_vm.loading
+                      ? _c("span", [_vm._v("Carregar")])
+                      : _c("span", [_vm._v("Carregando...")]),
+                  ]
+                ),
               ]),
             ]),
           ]),

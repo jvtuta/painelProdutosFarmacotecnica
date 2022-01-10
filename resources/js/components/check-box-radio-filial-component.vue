@@ -1,5 +1,5 @@
 <template>
-  <div class="form-check p-0">
+  <div class="form-check form-check-inline p-0">
     <input class="form-check-input mx-2" :value="label" type="radio" :name="name" :id="id" v-model="radioButtonVal" />
     <label class="form-check-label" :for="id"> {{ text }} </label>
   </div>

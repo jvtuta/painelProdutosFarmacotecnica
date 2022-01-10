@@ -50,15 +50,6 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-
-@font-face {
-  font-family: 'swiss_721regular';
-  src: url('../fontes/swiss-721-webfont.woff2') format('woff2'),
-  url('../fontes/swiss-721-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
