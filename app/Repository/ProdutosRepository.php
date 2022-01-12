@@ -3,6 +3,7 @@
 namespace App\Repository;
 use Illuminate\Support\Facades\DB;
 
+use function PHPUnit\Framework\isEmpty;
 
 class ProdutosRepository extends Repository {
     private $produtos;
@@ -43,12 +44,12 @@ class ProdutosRepository extends Repository {
         $resultArray = Array();
         foreach($this->produtos as $produto) {
             $cma = 0;
-            if(!$produto->PRVEN == 0) {
+            if(!isEmpty($produto->PRVEN)) {
                 $cma = ($produto->PRCOMN / $produto->PRVEN) * 100;
             }   
             $cma = number_format(($cma), 2, ',', '.');
             $mkp = 0;
-            if(!$produto->PRCOM == 0) {
+            if(!isEmpty($produto->PRCOM)) {
                 $mkp = ($produto->PRVEN / $produto->PRCOM);
             }            
             $mkp = number_format(($mkp), 2, ',', '.');
