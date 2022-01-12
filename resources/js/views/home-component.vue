@@ -157,7 +157,7 @@ export default {
       setTimeout(()=>{
         console.log('terminou')
         location.reload()
-      }, 220000)
+      }, 260000)
     }
   },
   mounted() {
