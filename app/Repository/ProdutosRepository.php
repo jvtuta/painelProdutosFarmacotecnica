@@ -43,12 +43,12 @@ class ProdutosRepository extends Repository {
         $resultArray = Array();
         foreach($this->produtos as $produto) {
             $cma = 0;
-            if(isEmpty($produto->PRVEN)) {
+            if($produto->PRVEN == '0') {
                 $cma = ($produto->PRCOMN / $produto->PRVEN) * 100;
             }   
             $cma = number_format(($cma), 2, ',', '.');
             $mkp = 0;
-            if(isEmpty($produto->PRCOM)) {
+            if($produto->PRCOM) == '0' {
                 $mkp = ($produto->PRVEN / $produto->PRCOM);
             }            
             $mkp = number_format(($mkp), 2, ',', '.');
