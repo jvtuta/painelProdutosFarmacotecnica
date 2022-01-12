@@ -100,7 +100,7 @@
                   type="submit"
                   class="btn btn-primary"
                   :disabled="date_val === true"
-                  @click="loading = true"
+                  @click="loadExcel()"
                 >
                   <span
                     class="spinner-grow spinner-grow-sm"
@@ -111,7 +111,9 @@
                   <span v-if="!loading">Carregar</span>
                   <span v-else>Carregando...</span>
                 </button>
+                
               </div>
+              <span v-if="loading">Tempo estimado para download: 5mins...</span>
             </div>
           </form>
         </div>
@@ -149,6 +151,14 @@ export default {
     selectedOption(val) {
       this.option = val;
     },
+    loadExcel() {
+      this.loading = true
+      console.log('startou')
+      setTimeout(()=>{
+        console.log('terminou')
+        location.reload()
+      }, 220000)
+    }
   },
   mounted() {
     let date = new Date();

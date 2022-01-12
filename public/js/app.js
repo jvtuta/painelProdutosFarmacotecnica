@@ -2238,6 +2238,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -2263,6 +2265,14 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     selectedOption: function selectedOption(val) {
       this.option = val;
+    },
+    loadExcel: function loadExcel() {
+      this.loading = true;
+      console.log('startou');
+      setTimeout(function () {
+        console.log('terminou');
+        location.reload();
+      }, 220000);
     }
   },
   mounted: function mounted() {
@@ -38024,7 +38034,7 @@ var render = function () {
                     attrs: { type: "submit", disabled: _vm.date_val === true },
                     on: {
                       click: function ($event) {
-                        _vm.loading = true
+                        return _vm.loadExcel()
                       },
                     },
                   },
@@ -38042,6 +38052,10 @@ var render = function () {
                   ]
                 ),
               ]),
+              _vm._v(" "),
+              _vm.loading
+                ? _c("span", [_vm._v("Tempo estimado para download: 5mins...")])
+                : _vm._e(),
             ]),
           ]),
         ]),
