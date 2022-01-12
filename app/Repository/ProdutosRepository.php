@@ -132,7 +132,7 @@ class ProdutosRepository extends Repository {
             ->get()->toArray();
         }
 
-        if($frequencia[0]->COUNT) {
+        if($frequencia && $frequencia[0]->COUNT) {
             return $frequencia[0]->COUNT;
         } else {
             return '0';
