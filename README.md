@@ -5,11 +5,10 @@
 
 ## Requisitos
 
-Extensões: 
-<p>php-gd -> instalação via apt install php-interbase</p>
-<p>php-interbase instalação manual -> </p> <a href="https://github.com/FirebirdSQL/php-firebird">Interbase</a>
-<p>php-firebird -> instalação via apt install php-interbase</p>
-<p>php-pdo_firebird -> instalação via apt install php-interbase</p>
+<h3>Extensões:</h3>
+<p>Php: interbase instalação manual -><a href="https://github.com/FirebirdSQL/php-firebird">Interbase</a></p> 
+<p>Php: pdo_firebird -> instalar extensão ext e fazer a build    </p>
+
 
 
 
