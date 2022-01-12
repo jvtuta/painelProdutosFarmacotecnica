@@ -28,7 +28,6 @@ class ProdutosRepository extends Repository {
     {
         
         $this->produtos = DB::table('FC03000')
-            ->select()
             ->whereRaw("GRUPO NOT IN ('D', 'O') AND INDDEL = 'N'")
             ->get()
             ->toArray();
@@ -44,12 +43,12 @@ class ProdutosRepository extends Repository {
         $resultArray = Array();
         foreach($this->produtos as $produto) {
             $cma = 0;
-            if(!isEmpty($produto->PRVEN)) {
+            if(isEmpty($produto->PRVEN)) {
                 $cma = ($produto->PRCOMN / $produto->PRVEN) * 100;
             }   
             $cma = number_format(($cma), 2, ',', '.');
             $mkp = 0;
-            if(!isEmpty($produto->PRCOM)) {
+            if(isEmpty($produto->PRCOM)) {
                 $mkp = ($produto->PRVEN / $produto->PRCOM);
             }            
             $mkp = number_format(($mkp), 2, ',', '.');
@@ -80,7 +79,6 @@ class ProdutosRepository extends Repository {
     private function estoque($produto) 
     {
         $estoque = DB::table('FC03140')
-            ->select()
             ->where('CDPRO', $produto->CDPRO)
             ->whereRaw("CDFIL IN $this->filiais")
             ->get();
@@ -106,7 +104,6 @@ class ProdutosRepository extends Repository {
     private function consumo($produto)
     {
         $consumo = DB::table('FC03110')
-            ->select()
             ->where('CDPRO', $produto->CDPRO)
             ->whereRaw("CDFIL in $this->filiais")
             ->where('ANORF', $this->ano)
@@ -125,12 +122,15 @@ class ProdutosRepository extends Repository {
      */
     private function frequencia($produto, $consumo)
     {        
-        $frequencia = DB::table('FC12110')
+        if($consumo > 0 ) {
+            $frequencia = DB::table('FC12110')
             ->select(DB::raw('COUNT(DISTINCT(NRRQU))'))
             ->where('CDPRO', $produto->CDPRO)
             ->whereRaw("CDFILE in $this->filialEstoque")
             ->whereRaw("DTENTR BETWEEN cast('$this->mesInicio' as date) and cast('$this->mesFim' as date)")
             ->get()->toArray();
+        }
+
         if($frequencia[0]->COUNT) {
             return $frequencia[0]->COUNT;
         } else {
