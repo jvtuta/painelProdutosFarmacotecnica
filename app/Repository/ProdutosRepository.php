@@ -39,18 +39,17 @@ class ProdutosRepository extends Repository {
 
     public function get()
     {
-        error_reporting(0);
         $resultArray = Array();
+
         foreach($this->produtos as $produto) {
+            
             $cma = 0;
-            
-            $cma = @($produto->PRCOMN / $produto->PRVEN) * 100;
-              
-            $cma = number_format(($cma), 2, ',', '.');
             $mkp = 0;
-            
-            $mkp = @($produto->PRVEN / $produto->PRCOM);
-                 
+            if($produto->PRCOMN != 0 && $produto->PRVEN != 0  && $produto->PRCOM != 0) {
+                $cma = ($produto->PRCOMN / $produto->PRVEN) * 100;
+                $mkp = $produto->PRVEN / $produto->PRCOM;
+            }                    
+            $cma = number_format(($cma), 2, ',', '.');                 
             $mkp = number_format(($mkp), 2, ',', '.');
             $consumo = $this->consumo($produto);
             $res = [
