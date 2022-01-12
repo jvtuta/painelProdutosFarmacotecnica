@@ -48,7 +48,7 @@ class ProdutosRepository extends Repository {
             }   
             $cma = number_format(($cma), 2, ',', '.');
             $mkp = 0;
-            if($produto->PRCOM) == '0' {
+            if($produto->PRCOM == '0' {
                 $mkp = ($produto->PRVEN / $produto->PRCOM);
             }            
             $mkp = number_format(($mkp), 2, ',', '.');
