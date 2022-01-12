@@ -39,7 +39,7 @@ class ProdutosRepository extends Repository {
 
     public function get()
     {
-
+        error_reporting(0);
         $resultArray = Array();
         foreach($this->produtos as $produto) {
             $cma = 0;
