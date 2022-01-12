@@ -122,6 +122,7 @@ class ProdutosRepository extends Repository {
      */
     private function frequencia($produto, $consumo)
     {        
+        $frequencia = Array();
         if($consumo > 0 ) {
             $frequencia = DB::table('FC12110')
             ->select(DB::raw('COUNT(DISTINCT(NRRQU))'))
