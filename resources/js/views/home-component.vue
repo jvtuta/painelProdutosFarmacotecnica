@@ -153,11 +153,6 @@ export default {
     },
     loadExcel() {
       this.loading = true
-      console.log('startou')
-      setTimeout(()=>{
-        console.log('terminou')
-        location.reload()
-      }, 320000)
     }
   },
   mounted() {
