@@ -2,12 +2,11 @@
 
 namespace App\Repository;
 use Illuminate\Support\Facades\DB;
-
-use function PHPUnit\Framework\isEmpty;
+use App\Repository\Chunks\ProdutosChunk;
 
 class ProdutosRepository extends Repository {
     private $produtos;
-    private $mes, $ultimoDiaMes, $mesFim, $ano, $filiais, $filialEstoque;
+    private $mes, $ano, $filiais, $filialEstoque;
     /**
      * @return DataFromFCerta
     */
@@ -17,9 +16,7 @@ class ProdutosRepository extends Repository {
         $this->mes = $mes;
         $this->filiais = $filiais;
         $this->filialEstoque = $filialEstoque;
-        $this->ultimoDiaMes = date('t', mktime(0, 0, 0, $mes, '01', $ano));
-        $this->mesFim = $this->ultimoDiaMes . '.' . $mes . '.' . $ano;
-        $this->mesInicio = '01.' . $mes . '.' . $ano;
+
         
         $this->produtos();
     }
@@ -28,6 +25,7 @@ class ProdutosRepository extends Repository {
     {
         
         $this->produtos = DB::table('FC03000')
+            ->orderBy('CDPRO')
             ->whereRaw("GRUPO NOT IN ('D', 'O') AND INDDEL = 'N'")
             ->get()
             ->toArray();
@@ -41,6 +39,14 @@ class ProdutosRepository extends Repository {
     {
         $resultArray = Array();
 
+        $produtosChunk = new ProdutosChunk($this->ano, $this->mes, $this->filiais);
+
+        $estoque_table = $produtosChunk->estoque()->get('estoque');
+        $consumo_table = $produtosChunk->consumo()->get('consumo');
+        $frequencia_table = $produtosChunk->frequencia()->get('frequencia');
+        
+        unset($produtosChunk);
+
         foreach($this->produtos as $produto) {
             
             $cma = 0;
@@ -51,15 +57,34 @@ class ProdutosRepository extends Repository {
             }                    
             $cma = number_format(($cma), 2, ',', '.');                 
             $mkp = number_format(($mkp), 2, ',', '.');
-            $consumo = $this->consumo($produto);
+            
+            if(isset($consumo_table[$produto->CDPRO])) {
+                $consumo = $consumo_table[$produto->CDPRO];
+            } else {
+                $consumo = "0";
+            }
+
+            if($consumo === "0") {
+                $frequencia = "0";
+            } else if(isset($frequencia_table[$produto->CDPRO])){
+                $frequencia = $frequencia_table[$produto->CDPRO];
+            } else {
+                $frequencia = "0";
+            }
+            if(isset($estoque_table[$produto->CDPRO])) {
+                $estoque = $estoque_table[$produto->CDPRO];
+            } else {
+                $estoque = "0";
+            }
+            
             $res = [
                 'cdpro'=> $produto->CDPRO,
                 'produto' => $produto->DESCRPRD,
                 'curva'=> $produto->CURVA,
                 'grupo' => $produto->GRUPO,
-                'estoque_atual' => $this->estoque($produto),
+                'estoque_atual' => $estoque,
                 'consumo' => $consumo,
-                'frequencia' => $this->frequencia($produto, $consumo),
+                'frequencia' => $frequencia,
                 'preco_compra' => number_format(($produto->PRCOMN), 2, ',', '.'),
                 'preco_venda' => number_format(($produto->PRVEN), 2, ',', '.'),
                 'cma' => $cma,
@@ -69,73 +94,5 @@ class ProdutosRepository extends Repository {
         }
         
         return $resultArray;
-    }
-
-    /**
-     * @param CDPRO_PRODUTO_
-     * @return ESTOQUE_PRODUTO_
-     */
-    private function estoque($produto) 
-    {
-        $estoque = DB::table('FC03140')
-            ->where('CDPRO', $produto->CDPRO)
-            ->whereRaw("CDFIL IN $this->filiais")
-            ->get();
-        $estoque = $estoque->pipe( function($produto) {
-            $resultado = collect([
-                'sum_estat'=>$produto->sum('ESTAT'),
-                'sum_saidatr'=>$produto->sum('SAIDATR')
-            ]);
-            $resultado = $resultado->toArray();
-            return $resultado['sum_estat'] - $resultado['sum_saidatr'];            
-        });
-
-        if($estoque) {
-            return $estoque;                                                                                
-        } else {
-            return '0';
-        }
-        
-    }
-    /**
-     * @param CDPRO_DO_PRODUTO_
-     */
-    private function consumo($produto)
-    {
-        $consumo = DB::table('FC03110')
-            ->where('CDPRO', $produto->CDPRO)
-            ->whereRaw("CDFIL in $this->filiais")
-            ->where('ANORF', $this->ano)
-            ->where('MESRF', $this->mes)
-            ->get()->sum('ACSAIDAQT');
-        if($consumo) {
-            return $consumo;
-        } else {
-            return '0';
-        }
-                                
-    }
-    /**
-     * @param CDPRO_PRODUTO_
-     * @param CONSUMO_PRODUTO_
-     */
-    private function frequencia($produto, $consumo)
-    {        
-        $frequencia = Array();
-        if($consumo > 0 ) {
-            $frequencia = DB::table('FC12110')
-            ->select(DB::raw('COUNT(DISTINCT(NRRQU))'))
-            ->where('CDPRO', $produto->CDPRO)
-            ->whereRaw("CDFILE in $this->filialEstoque")
-            ->whereRaw("DTENTR BETWEEN cast('$this->mesInicio' as date) and cast('$this->mesFim' as date)")
-            ->get()->toArray();
-        }
-
-        if(isset($frequencia[0]->COUNT)) {
-            return $frequencia[0]->COUNT;
-        } else {
-            return '0';
-        }
-        
     }
 }

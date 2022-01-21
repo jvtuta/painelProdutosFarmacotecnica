@@ -113,7 +113,7 @@
                 </button>
                 
               </div>
-              <span v-if="loading">Tempo estimado para download entre 4m a 5m...</span>
+              <span v-if="loading">Tempo estimado para download entre 10s até 30s</span>
             </div>
           </form>
         </div>
