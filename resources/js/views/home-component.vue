@@ -153,6 +153,9 @@ export default {
     },
     loadExcel() {
       this.loading = true
+      setTimeout(() => {
+          this.loading = false;
+      }, 45000);
     }
   },
   mounted() {
