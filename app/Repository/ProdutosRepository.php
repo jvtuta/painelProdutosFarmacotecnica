@@ -92,7 +92,9 @@ class ProdutosRepository extends Repository {
             ];
             array_push($resultArray, $res);
         }
-        
+        unset($estoque_table);
+        unset($consumo_table);
+        unset($frequencia_table);
         return $resultArray;
     }
 }
