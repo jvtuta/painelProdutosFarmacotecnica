@@ -97,21 +97,21 @@
             <div class="row mt-4 p-1">
               <div class="d-grid gap-2">
                 <button
-                  type="submit"
                   class="btn btn-primary"
-                  :disabled="date_val === true"
+                  :disabled="loading == true"
                   @click="loadExcel()"
                 >
                   <span
                     class="spinner-grow spinner-grow-sm"
                     role="status"
                     aria-hidden="true"
+
                     v-if="loading"
                   ></span>
                   <span v-if="!loading">Carregar</span>
                   <span v-else>Carregando...</span>
                 </button>
-                
+
               </div>
               <span v-if="loading">Tempo estimado para download entre 10s até 30s</span>
             </div>
@@ -153,9 +153,43 @@ export default {
     },
     loadExcel() {
       this.loading = true
-      setTimeout(() => {
-          this.loading = false;
-      }, 45000);
+
+      this.getData();
+
+    },
+    async getData() {
+      const url = `api/v1/produtos?options=${this.option}&&date_val=${this.date_val}`
+      const config = {
+          method:"get",
+          url,
+          headers: {
+            responseType: 'blob',
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+      }
+
+    //   try {
+    //     const data = await axios(config);
+    //     console.log(data)
+    //     fileDownload(data.data, "teste.xlsx");
+    //   } catch ( err ) {
+    //       console.log(err)
+    //   }
+      const data = await (await axios(config)).data;
+
+      let excel = await fetch('storage/'+data);
+      excel = await excel.blob();
+      let fileURL = window.URL.createObjectURL(excel);
+
+      let fileLink = document.createElement("a");
+      fileLink.href = fileURL;
+      fileLink.setAttribute("download", data);
+      document.body.appendChild(fileLink);
+      fileLink.click();
+      document.body.removeChild(fileLink);
+
+      this.loading = false;
+
     }
   },
   mounted() {

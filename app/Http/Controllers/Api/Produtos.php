@@ -6,6 +6,7 @@ use App\Repository\ProdutosRepository;
 use App\Exports\ProdutosExport;
 use Maatwebsite\Excel\Facades\Excel;
 
+
 class Produtos extends Controller
 {
     /**
@@ -24,8 +25,8 @@ class Produtos extends Controller
         }
 
         $filialName = array(
-            '01'=>'Matriz', '02'=>'102Sul', '03'=> 'TagCentro','04'=>'TagNorte', 
-            '06'=>'302Sul', '08'=>'CCSul',  '12'=> '316Norte', '15'=>'TeleAtendimento', 
+            '01'=>'Matriz', '02'=>'102Sul', '03'=> 'TagCentro','04'=>'TagNorte',
+            '06'=>'302Sul', '08'=>'CCSul',  '12'=> '316Norte', '15'=>'TeleAtendimento',
             '16'=>'Almoxarifado', '00'=>'Todas'
         );
 
@@ -36,18 +37,22 @@ class Produtos extends Controller
         );
 
         $filial = $request->options === '00' ? "('01', '02', '03', '04', '06', '08', '12', '15', '16')" : "('$request->options')";
-        
+
         $produtos = new ProdutosRepository($ano, $mes, $filial, $filial);
         $produtos = $produtos->get();
 
         $export = new ProdutosExport($produtos);
-        
+
         if($request->options != 0 ) {
-            return Excel::download($export, 'RelatórioDeProdutos '. '_'. $filialName[$request->options] . '_'. $mesArray[$mes] . '.xlsx');
+            $name = 'RelatórioProdutos '. '_'. $filialName[$request->options] . '_'. $mesArray[$mes] . '.xlsx';
         } else {
-            return Excel::download($export, 'RelatórioDeProdutos '. '_'. $mesArray[$mes] . '.xlsx');
+            $name = 'RelatórioProdutos '. '_'. $mesArray[$mes] . '.xlsx';
         }
-        
+
+        Excel::store($export, $name,'public');
+
+        return response()->json($name);
+
     }
 
     /**
