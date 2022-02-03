@@ -41,7 +41,6 @@ class Produtos extends Controller
         $produtos = new ProdutosRepository($ano, $mes, $filial, $filial);
         $produtos = $produtos->get();
 
-
         $export = new ProdutosExport($produtos);
 
         if($request->options != 0 ) {
