@@ -16,9 +16,9 @@ class Produtos extends Controller
      */
     public function index(Request $request)
     {
-        $data = date('d-m-Y', strtotime($request->periodo));
-        $data = explode('-', $data);
-        $ano = $data[2];
+
+        $data = explode('-', $request->date_val);
+        $ano = $data[0];
         $mes = $data[1];
         if(empty($request->options)) {
             $request->options = '00';
@@ -44,11 +44,14 @@ class Produtos extends Controller
         $export = new ProdutosExport($produtos);
 
         if($request->options != 0 ) {
-            $name = 'RelatórioProdutos '. '_'. $filialName[$request->options] . '_'. $mesArray[$mes] .'_'. $ano. '.xlsx';
+            $name = 'Relatorio_produtos '. '_'. $filialName[$request->options] . '_'. $mesArray[$mes] .'_'. $ano. '.xlsx';
         } else {
-            $name = 'RelatórioProdutos '. '_'. $mesArray[$mes] .'_'. $ano .'.xlsx';
+            $name = 'Relatorio_produtos '. '_'. $mesArray[$mes] .'_'. $ano .'.xlsx';
         }
-        unlink('storage/'.$name);
+        $filename = 'storage/'.$name;
+        
+        if(file_exists($filename))
+            unlink($filename);
 
         Excel::store($export, $name,'public');
 

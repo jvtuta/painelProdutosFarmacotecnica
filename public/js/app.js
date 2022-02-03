@@ -2298,7 +2298,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                url = "api/v1/produtos?options=".concat(_this.option, "&&date_val=").concat(_this.date_val);
+                url = "api/v1/produtos?options=".concat(_this.option, "&date_val=").concat(_this.date_val);
                 config = {
                   method: "get",
                   url: url,
