@@ -126,6 +126,7 @@
 <script>
 import checkBoxFilialVue from "../components/check-box-radio-filial-component.vue";
 
+
 export default {
   props: {
     action: String,
@@ -158,7 +159,7 @@ export default {
 
     },
     async getData() {
-      const url = `api/v1/produtos?options=${this.option}&&date_val=${this.date_val}`
+      const url = `api/v1/produtos?options=${this.option}&date_val=${this.date_val}`
       const config = {
           method:"get",
           url,

@@ -44,10 +44,11 @@ class Produtos extends Controller
         $export = new ProdutosExport($produtos);
 
         if($request->options != 0 ) {
-            $name = 'RelatórioProdutos '. '_'. $filialName[$request->options] . '_'. $mesArray[$mes] . '.xlsx';
+            $name = 'RelatórioProdutos '. '_'. $filialName[$request->options] . '_'. $mesArray[$mes] .'_'. $ano. '.xlsx';
         } else {
-            $name = 'RelatórioProdutos '. '_'. $mesArray[$mes] . '.xlsx';
+            $name = 'RelatórioProdutos '. '_'. $mesArray[$mes] .'_'. $ano .'.xlsx';
         }
+        unlink('storage/'.$name);
 
         Excel::store($export, $name,'public');
 
