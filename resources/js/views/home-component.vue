@@ -187,6 +187,7 @@ export default {
       fileLink.setAttribute("download", data);
       document.body.appendChild(fileLink);
       fileLink.click();
+      
       document.body.removeChild(fileLink);
 
       this.loading = false;
