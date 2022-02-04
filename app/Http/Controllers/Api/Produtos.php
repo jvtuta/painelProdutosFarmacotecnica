@@ -49,11 +49,13 @@ class Produtos extends Controller
             $name = 'Relatorio_produtos '. '_'. $mesArray[$mes] .'_'. $ano .'.xlsx';
         }
         $filename = 'storage/'.$name;
-        
+
         if(file_exists($filename))
             unlink($filename);
 
         Excel::store($export, $name,'public');
+        unset($export);
+        unset($produtos);
 
         return response()->json($name);
 
