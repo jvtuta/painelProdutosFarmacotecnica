@@ -1,0 +1,35 @@
+version: "3.7"
+
+services:
+  app:
+    build:
+      args:
+        user: jv
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: farmacotecnica_apps/painel_produtos_pedidos:2.0
+    container_name: farma_prod_v20
+    restart: unless-stopped
+    working_dir: /var/www/
+    mem_limit: 512m
+    volumes:
+      - ./:/var/www
+    networks:
+      - farma_apps_prod_net
+
+  nginx:
+    image: nginx:alpine
+    container_name: farma_apps_prod_net-nginx
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d
+    networks:
+      - farma_apps_prod_net
+
+networks:
+  farma_apps_prod_net:
+    driver: bridge
