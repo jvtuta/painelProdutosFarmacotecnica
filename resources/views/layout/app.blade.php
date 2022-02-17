@@ -8,20 +8,16 @@
     <title>Relatório de Produtos</title>
     <link rel="shortcut icon" href="https://farmacotecnica.com.br/favicon.ico">
     <style>
-  
+
         * {
         margin: 0;
         padding: 0;
-        overflow-x: hidden;
-        font-family: 'swiss_721regular' !important;
+
+
         }
-        div.titulo h1 {
-            font-weight: 400;
-            font-size: 3rem;
-            color: white;
-        }
+
         nav.header {
-            background-color: black;
+            background-color: #272727;
             margin-bottom: 50px;
         }
     </style>
@@ -29,22 +25,22 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light header">
         <div class="container-fluid">
-          <div>
+          <div class="col-sm-4 col text-start">
             <a class="navbar-brand" href="#">
               <img src="{{asset('logo-farmacotecnica.png')}}" alt="" width="160">
             </a>
           </div>
-          <div class="titulo">
-            <h1>Relatório de Produtos</h1>
+          <div class="col-sm-4 col fs-1 text-center text-white">
+            <h1 style="overflow: hidden">Relatório de Produtos</h1>
           </div>
-          <div>
+          <div class=" col-sm-4 col text-end">
             <a href="" class="navbar-brand">
               <img src="{{asset('logo-mram.png')}}" alt="" width="180">
             </a>
           </div>
         </div>
       </nav>
-    
+
     <div id="app">
         @yield('content')
     </div>

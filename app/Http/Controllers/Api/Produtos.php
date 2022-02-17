@@ -42,20 +42,22 @@ class Produtos extends Controller
         $produtos = $produtos->get();
 
         $export = new ProdutosExport($produtos);
-
         if($request->options != 0 ) {
-            $name = 'Relatorio_produtos '. '_'. $filialName[$request->options] . '_'. $mesArray[$mes] .'_'. $ano. '.xlsx';
+            $name = 'Relatorio_produtos'. '_'. $filialName[$request->options] . '_'. $mesArray[$mes] .'_'. $ano. '.xlsx';
         } else {
-            $name = 'Relatorio_produtos '. '_'. $mesArray[$mes] .'_'. $ano .'.xlsx';
+            $name = 'Relatorio_produtos'. '_'. $mesArray[$mes] .'_'. $ano .'.xlsx';
         }
+
         $filename = 'storage/'.$name;
 
         if(file_exists($filename))
             unlink($filename);
 
         Excel::store($export, $name,'public');
-        unset($export);
-        unset($produtos);
+
+        //desalocar variaveis
+        $produtos = null;
+        $export = null;
 
         return response()->json($name);
 

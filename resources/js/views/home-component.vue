@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-6 col-sm-10">
+      <div class="col-md-10 col-lg-8 col-xl-6 col-sm-12">
         <div class="card p-3">
           <form :action="action" method="get">
             <div class="row">
