@@ -119,7 +119,6 @@
         </div>
       </div>
     </div>
-    <div class="row justify-content-center"></div>
   </div>
 </template>
 
@@ -176,19 +175,27 @@ export default {
     //   } catch ( err ) {
     //       console.log(err)
     //   }
-      const data = await (await axios(config)).data;
+      try  {
+        const data = await (await axios(config)).data;
+        let excel = await fetch('storage/'+data);
+        excel = await excel.blob();
+        let fileURL = window.URL.createObjectURL(excel);
 
-      let excel = await fetch('storage/'+data);
-      excel = await excel.blob();
-      let fileURL = window.URL.createObjectURL(excel);
+        let fileLink = document.createElement("a");
+        fileLink.href = fileURL;
+        fileLink.setAttribute("download", data);
+        document.body.appendChild(fileLink);
+        fileLink.click();
+        document.body.removeChild(fileLink);
 
-      let fileLink = document.createElement("a");
-      fileLink.href = fileURL;
-      fileLink.setAttribute("download", data);
-      document.body.appendChild(fileLink);
-      fileLink.click();
-      document.body.removeChild(fileLink);
-
+      } catch(err) {
+        console.log(err);
+        for(let i = 0; i < 5; i++) {
+            //Liberar memória no srv
+            document.location.reload(true);
+        }
+        this.loadExcel();
+      }
       this.loading = false;
 
     }

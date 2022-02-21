@@ -1,7 +1,17 @@
 <template>
   <div class="form-check form-check-inline p-0">
-    <input class="form-check-input mx-2" :value="label" type="radio" :name="name" :id="id" v-model="radioButtonVal" />
-    <label class="form-check-label" :for="id"> {{ text }} </label>
+    <input
+        class="form-check-input mx-2"
+        :value="label"
+        type="radio"
+        :name="name"
+        :id="id"
+        v-model="radioButtonVal"
+    />
+    <label
+        class="form-check-label"
+        :for="id"> {{ text }}
+    </label>
   </div>
 </template>
 
@@ -25,14 +35,12 @@ export default {
     },
     computed: {
         radioButtonVal: {
-            
             get() {
                 return this.value
-            }, 
+            },
             set(val) {
                 this.$emit('change', val)
             }
-            
         }
     }
 };

@@ -16,6 +16,8 @@ class Produtos extends Controller
      */
     public function index(Request $request)
     {
+        $produtos = null;
+        $export = null;
 
         $data = explode('-', $request->date_val);
         $ano = $data[0];
@@ -54,10 +56,6 @@ class Produtos extends Controller
             unlink($filename);
 
         Excel::store($export, $name,'public');
-
-        //desalocar variaveis
-        $produtos = null;
-        $export = null;
 
         return response()->json($name);
 

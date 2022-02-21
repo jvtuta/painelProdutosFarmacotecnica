@@ -25,7 +25,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light header">
         <div class="container-fluid">
-          <div class="col-sm-4 col text-start">
+          <div class="d-none d-sm-block col-sm-4 col text-start">
             <a class="navbar-brand" href="#">
               <img src="{{asset('logo-farmacotecnica.png')}}" alt="" width="160">
             </a>
@@ -33,7 +33,7 @@
           <div class="col-sm-4 col fs-1 text-center text-white">
             <h1 style="overflow: hidden">Relatório de Produtos</h1>
           </div>
-          <div class=" col-sm-4 col text-end">
+          <div class="d-none d-sm-block col-sm-4 col text-end">
             <a href="" class="navbar-brand">
               <img src="{{asset('logo-mram.png')}}" alt="" width="180">
             </a>

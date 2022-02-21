@@ -91,6 +91,7 @@ class ProdutosRepository {
                 'mkp' => $mkp
             ];
             array_push($resultArray, $res);
+            $res = null;
         }
         $estoque_table = null;
         $consumo_table = null;
