@@ -51,8 +51,6 @@ class ProdutosChunk {
 
             });
         $this->estoque = $estoque;
-
-        $estoque = null;
         return $this;
     }
 
@@ -85,8 +83,6 @@ class ProdutosChunk {
                 }
             });
         $this->consumo = $consumo;
-
-        $consumo = null;
         return $this;
     }
 
@@ -110,8 +106,6 @@ class ProdutosChunk {
                 }
             });
         $this->frequencia = $frequencia;
-
-        $frequencia = null;
         return $this;
     }
 

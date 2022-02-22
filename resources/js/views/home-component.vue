@@ -175,28 +175,41 @@ export default {
     //   } catch ( err ) {
     //       console.log(err)
     //   }
-      try  {
-        const data = await (await axios(config)).data;
-        let excel = await fetch('storage/'+data);
-        excel = await excel.blob();
-        let fileURL = window.URL.createObjectURL(excel);
+    const config2 = {
+            method: "get",
+            url: '/'
+    }
+    for(let i = 0; i < 10; i++) {
+        //Liberar memória no srv
 
-        let fileLink = document.createElement("a");
-        fileLink.href = fileURL;
-        fileLink.setAttribute("download", data);
-        document.body.appendChild(fileLink);
-        fileLink.click();
-        document.body.removeChild(fileLink);
+        await axios(config2);
+    }
+    try  {
+    const data = await (await axios(config)).data;
+    let excel = await fetch('storage/'+data);
+    excel = await excel.blob();
+    let fileURL = window.URL.createObjectURL(excel);
 
-      } catch(err) {
-        console.log(err);
-        for(let i = 0; i < 5; i++) {
-            //Liberar memória no srv
-            document.location.reload(true);
-        }
-        this.loadExcel();
-      }
-      this.loading = false;
+    let fileLink = document.createElement("a");
+    fileLink.href = fileURL;
+    fileLink.setAttribute("download", data);
+    document.body.appendChild(fileLink);
+    fileLink.click();
+    document.body.removeChild(fileLink);
+
+    } catch(err) {
+    console.log(err);
+
+    return this.loadExcel();
+    }
+
+    for(let i = 0; i < 10; i++) {
+        //Liberar memória no srv
+
+        axios(config2);
+    }
+
+    this.loading = false;
 
     }
   },

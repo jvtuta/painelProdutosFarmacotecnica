@@ -12,7 +12,7 @@ services:
     container_name: farma_prod_v20
     restart: unless-stopped
     working_dir: /var/www/
-    mem_limit: 768m
+    mem_limit: 1024m
     volumes:
       - ./:/var/www
     networks:

@@ -1,7 +1,7 @@
 FROM php:8.0-fpm
 
-ARG uid
 ARG user
+ARG uid
 
 ENV TZ="America/Sao_Paulo"
 
