@@ -185,22 +185,22 @@ export default {
         await axios(config2);
     }
     try  {
-    const data = await (await axios(config)).data;
-    let excel = await fetch('storage/'+data);
-    excel = await excel.blob();
-    let fileURL = window.URL.createObjectURL(excel);
+        const data = await (await axios(config)).data;
+        let excel = await fetch('storage/'+data);
+        excel = await excel.blob();
+        let fileURL = window.URL.createObjectURL(excel);
 
-    let fileLink = document.createElement("a");
-    fileLink.href = fileURL;
-    fileLink.setAttribute("download", data);
-    document.body.appendChild(fileLink);
-    fileLink.click();
-    document.body.removeChild(fileLink);
+        let fileLink = document.createElement("a");
+        fileLink.href = fileURL;
+        fileLink.setAttribute("download", data);
+        document.body.appendChild(fileLink);
+        fileLink.click();
+        document.body.removeChild(fileLink);
 
     } catch(err) {
-    console.log(err);
+        console.log(err);
 
-    return this.loadExcel();
+        return this.loadExcel();
     }
 
     for(let i = 0; i < 10; i++) {

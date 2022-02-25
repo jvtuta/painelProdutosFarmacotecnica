@@ -45,6 +45,8 @@ class ProdutosRepository {
         $consumo_table = $produtosChunk->consumo()->get('consumo');
         $frequencia_table = $produtosChunk->frequencia()->get('frequencia');
 
+        unset($produtosChunk);
+
         foreach($this->produtos as $produto) {
 
             $cma = 0;
@@ -90,6 +92,9 @@ class ProdutosRepository {
             ];
             array_push($resultArray, $res);
         }
+        unset($estoque_table);
+        unset($consumo_table);
+        unset($frequencia_table);
 
         return $resultArray;
     }

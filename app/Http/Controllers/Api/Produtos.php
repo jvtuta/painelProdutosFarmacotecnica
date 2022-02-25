@@ -57,6 +57,9 @@ class Produtos extends Controller
 
         Excel::store($export, $name,'public');
 
+        unset($export);
+        unset($produtos);
+
         return response()->json($name);
 
     }
