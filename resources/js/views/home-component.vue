@@ -186,7 +186,7 @@ export default {
     }
     try  {
         const data = await (await axios(config)).data;
-        let excel = await fetch('/storage/'+data);
+        let excel = await fetch(data);
         excel = await excel.blob();
         let fileURL = window.URL.createObjectURL(excel);
 
@@ -199,8 +199,6 @@ export default {
 
     } catch(err) {
         console.log(err);
-
-        return this.loadExcel();
     }
 
     for(let i = 0; i < 10; i++) {

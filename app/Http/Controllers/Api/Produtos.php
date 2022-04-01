@@ -63,7 +63,7 @@ class Produtos extends Controller
         unset($export);
         unset($produtos);
 
-        return response()->json($name);
+        return response()->json(asset('storage/'.$name));
 
     }
 

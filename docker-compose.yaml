@@ -4,7 +4,7 @@ services:
   app:
     build:
       args:
-        user: jv
+        user: application
         uid: 1000
       context: ./
       dockerfile: Dockerfile
