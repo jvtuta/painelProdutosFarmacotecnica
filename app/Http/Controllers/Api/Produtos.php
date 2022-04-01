@@ -50,12 +50,15 @@ class Produtos extends Controller
             $name = 'Relatorio_produtos'. '_'. $mesArray[$mes] .'_'. $ano .'.xlsx';
         }
 
-        $filename = 'storage/'.$name;
-
-        if(file_exists($filename))
+        $filename = storage_path('app/public/'.$name);
+        if(file_exists($filename)) {
             unlink($filename);
+        }
+            
+        
 
-        Excel::store($export, $name,'public');
+        Excel::store($export, $name, 'public');
+        // Excel::download($filename);
 
         unset($export);
         unset($produtos);
